@@ -343,7 +343,7 @@ async def get_package():
 					registerPackageResponse = monitor.RegisterPackage(
 						resource_pb2.RegisterPackageRequest(
 							name="terraform-provider",
-							version="0.7.0",
+							version="0.8.0",
 							download_url=get_plugin_download_url(),
 							parameterization=parameterization,
 						))
@@ -353,4 +353,4 @@ async def get_package():
 	if _package_ref is None or _package_ref is ...:
 		raise Exception("The Pulumi CLI does not support parameterization. Please update the Pulumi CLI.")
 	return _package_ref
-	
+
