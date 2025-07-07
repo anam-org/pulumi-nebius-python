@@ -89,12 +89,16 @@ def _get_semver_version():
     elif pep440_version.pre_tag == 'rc':
         prerelease = f"rc.{pep440_version.pre}"
     elif pep440_version.dev is not None:
+        # PEP440 has explicit support for dev builds, while semver encodes them as "prerelease" versions. To bridge 
+        # between the two, we convert our dev build version into a prerelease tag. This matches what all of our other
+        # packages do when constructing their own semver string.
         prerelease = f"dev.{pep440_version.dev}"
+    elif pep440_version.local is not None:
+        # PEP440 only allows a small set of prerelease tags, so when converting an arbitrary prerelease,
+        # PypiVersion in /pkg/codegen/python/utilities.go converts it to a local version. Therefore, we need to
+        # do the reverse conversion here and set the local version as the prerelease tag.
+        prerelease = pep440_version.local
 
-    # The only significant difference between PEP440 and semver as it pertains to us is that PEP440 has explicit support
-    # for dev builds, while semver encodes them as "prerelease" versions. In order to bridge between the two, we convert
-    # our dev build version into a prerelease tag. This matches what all of our other packages do when constructing
-    # their own semver string.
     return SemverVersion(major=major, minor=minor, patch=patch, prerelease=prerelease)
 
 
@@ -324,7 +328,7 @@ def get_plugin_download_url():
 	return None
 
 def get_version():
-     return _version_str
+    return "0.5.55"
 
 _package_lock = asyncio.Lock()
 _package_ref = ...
@@ -338,12 +342,12 @@ async def get_package():
 					parameterization = resource_pb2.Parameterization(
 						name="nebius",
 						version=get_version(),
-						value=base64.b64decode("eyJyZW1vdGUiOnsidXJsIjoidGVycmFmb3JtLXByb3ZpZGVyLnN0b3JhZ2UuZXUtbm9ydGgxLm5lYml1cy5jbG91ZC9uZWJpdXMvbmViaXVzIiwidmVyc2lvbiI6IjAuNS40In19"),
+						value=base64.b64decode("eyJyZW1vdGUiOnsidXJsIjoidGVycmFmb3JtLXByb3ZpZGVyLnN0b3JhZ2UuZXUtbm9ydGgxLm5lYml1cy5jbG91ZC9uZWJpdXMvbmViaXVzIiwidmVyc2lvbiI6IjAuNS41NSJ9fQ=="),
 					)
 					registerPackageResponse = monitor.RegisterPackage(
 						resource_pb2.RegisterPackageRequest(
 							name="terraform-provider",
-							version="0.8.0",
+							version="0.12.0",
 							download_url=get_plugin_download_url(),
 							parameterization=parameterization,
 						))
@@ -353,4 +357,4 @@ async def get_package():
 	if _package_ref is None or _package_ref is ...:
 		raise Exception("The Pulumi CLI does not support parameterization. Please update the Pulumi CLI.")
 	return _package_ref
-
+	

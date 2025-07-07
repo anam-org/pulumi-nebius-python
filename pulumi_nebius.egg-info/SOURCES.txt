@@ -22,7 +22,9 @@ pulumi_nebius/get_compute_v1alpha1_filesystem.py
 pulumi_nebius/get_compute_v1alpha1_gpu_cluster.py
 pulumi_nebius/get_compute_v1alpha1_image.py
 pulumi_nebius/get_compute_v1alpha1_instance.py
+pulumi_nebius/get_iam_v1_access_permit.py
 pulumi_nebius/get_iam_v1_auth_public_key.py
+pulumi_nebius/get_iam_v1_federated_credentials.py
 pulumi_nebius/get_iam_v1_federation.py
 pulumi_nebius/get_iam_v1_federation_certificate.py
 pulumi_nebius/get_iam_v1_group.py
@@ -32,6 +34,7 @@ pulumi_nebius/get_iam_v1_project.py
 pulumi_nebius/get_iam_v1_service_account.py
 pulumi_nebius/get_iam_v1_tenant.py
 pulumi_nebius/get_iam_v1_tenant_user_account.py
+pulumi_nebius/get_iam_v2_access_key.py
 pulumi_nebius/get_mk8s_v1_cluster.py
 pulumi_nebius/get_mk8s_v1_node_group.py
 pulumi_nebius/get_mk8s_v1alpha1_cluster.py
@@ -51,12 +54,16 @@ pulumi_nebius/get_vpc_v1alpha1_network.py
 pulumi_nebius/get_vpc_v1alpha1_pool.py
 pulumi_nebius/get_vpc_v1alpha1_scope.py
 pulumi_nebius/get_vpc_v1alpha1_subnet.py
+pulumi_nebius/iam_v1_access_permit.py
 pulumi_nebius/iam_v1_auth_public_key.py
+pulumi_nebius/iam_v1_federated_credentials.py
 pulumi_nebius/iam_v1_federation.py
 pulumi_nebius/iam_v1_federation_certificate.py
+pulumi_nebius/iam_v1_group.py
 pulumi_nebius/iam_v1_group_membership.py
 pulumi_nebius/iam_v1_invitation.py
 pulumi_nebius/iam_v1_service_account.py
+pulumi_nebius/iam_v2_access_key.py
 pulumi_nebius/mk8s_v1_cluster.py
 pulumi_nebius/mk8s_v1_node_group.py
 pulumi_nebius/mk8s_v1alpha1_cluster.py
@@ -72,6 +79,9 @@ pulumi_nebius/py.typed
 pulumi_nebius/registry_v1_registry.py
 pulumi_nebius/storage_v1_bucket.py
 pulumi_nebius/vpc_v1_allocation.py
+pulumi_nebius/vpc_v1_network.py
+pulumi_nebius/vpc_v1_pool.py
+pulumi_nebius/vpc_v1_subnet.py
 pulumi_nebius/vpc_v1alpha1_allocation.py
 pulumi_nebius.egg-info/PKG-INFO
 pulumi_nebius.egg-info/SOURCES.txt
