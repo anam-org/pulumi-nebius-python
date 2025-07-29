@@ -16,30 +16,24 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
-    'GetVpcV1NetworkResult',
-    'AwaitableGetVpcV1NetworkResult',
-    'get_vpc_v1_network',
-    'get_vpc_v1_network_output',
+    'GetIamV2TenantResult',
+    'AwaitableGetIamV2TenantResult',
+    'get_iam_v2_tenant',
+    'get_iam_v2_tenant_output',
 ]
 
 @pulumi.output_type
-class GetVpcV1NetworkResult:
+class GetIamV2TenantResult:
     """
-    A collection of values returned by getVpcV1Network.
+    A collection of values returned by getIamV2Tenant.
     """
-    def __init__(__self__, created_at=None, id=None, ipv4_private_pools=None, ipv4_public_pools=None, labels=None, metadata=None, name=None, parent_id=None, resource_version=None, status=None, updated_at=None):
+    def __init__(__self__, created_at=None, id=None, labels=None, metadata=None, name=None, parent_id=None, resource_version=None, status=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if ipv4_private_pools and not isinstance(ipv4_private_pools, dict):
-            raise TypeError("Expected argument 'ipv4_private_pools' to be a dict")
-        pulumi.set(__self__, "ipv4_private_pools", ipv4_private_pools)
-        if ipv4_public_pools and not isinstance(ipv4_public_pools, dict):
-            raise TypeError("Expected argument 'ipv4_public_pools' to be a dict")
-        pulumi.set(__self__, "ipv4_public_pools", ipv4_public_pools)
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
         pulumi.set(__self__, "labels", labels)
@@ -73,23 +67,13 @@ class GetVpcV1NetworkResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
-    @pulumi.getter(name="ipv4PrivatePools")
-    def ipv4_private_pools(self) -> 'outputs.GetVpcV1NetworkIpv4PrivatePoolsResult':
-        return pulumi.get(self, "ipv4_private_pools")
-
-    @_builtins.property
-    @pulumi.getter(name="ipv4PublicPools")
-    def ipv4_public_pools(self) -> 'outputs.GetVpcV1NetworkIpv4PublicPoolsResult':
-        return pulumi.get(self, "ipv4_public_pools")
-
-    @_builtins.property
     @pulumi.getter
     def labels(self) -> Mapping[str, _builtins.str]:
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> 'outputs.GetVpcV1NetworkMetadataResult':
+    def metadata(self) -> 'outputs.GetIamV2TenantMetadataResult':
         return pulumi.get(self, "metadata")
 
     @_builtins.property
@@ -109,7 +93,7 @@ class GetVpcV1NetworkResult:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> 'outputs.GetVpcV1NetworkStatusResult':
+    def status(self) -> 'outputs.GetIamV2TenantStatusResult':
         return pulumi.get(self, "status")
 
     @_builtins.property
@@ -118,16 +102,14 @@ class GetVpcV1NetworkResult:
         return pulumi.get(self, "updated_at")
 
 
-class AwaitableGetVpcV1NetworkResult(GetVpcV1NetworkResult):
+class AwaitableGetIamV2TenantResult(GetIamV2TenantResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVpcV1NetworkResult(
+        return GetIamV2TenantResult(
             created_at=self.created_at,
             id=self.id,
-            ipv4_private_pools=self.ipv4_private_pools,
-            ipv4_public_pools=self.ipv4_public_pools,
             labels=self.labels,
             metadata=self.metadata,
             name=self.name,
@@ -137,10 +119,10 @@ class AwaitableGetVpcV1NetworkResult(GetVpcV1NetworkResult):
             updated_at=self.updated_at)
 
 
-def get_vpc_v1_network(id: Optional[_builtins.str] = None,
-                       name: Optional[_builtins.str] = None,
-                       parent_id: Optional[_builtins.str] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcV1NetworkResult:
+def get_iam_v2_tenant(id: Optional[_builtins.str] = None,
+                      name: Optional[_builtins.str] = None,
+                      parent_id: Optional[_builtins.str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIamV2TenantResult:
     """
     Use this data source to access information about an existing resource.
     """
@@ -149,13 +131,11 @@ def get_vpc_v1_network(id: Optional[_builtins.str] = None,
     __args__['name'] = name
     __args__['parentId'] = parent_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('nebius:index/getVpcV1Network:getVpcV1Network', __args__, opts=opts, typ=GetVpcV1NetworkResult, package_ref=_utilities.get_package()).value
+    __ret__ = pulumi.runtime.invoke('nebius:index/getIamV2Tenant:getIamV2Tenant', __args__, opts=opts, typ=GetIamV2TenantResult, package_ref=_utilities.get_package()).value
 
-    return AwaitableGetVpcV1NetworkResult(
+    return AwaitableGetIamV2TenantResult(
         created_at=pulumi.get(__ret__, 'created_at'),
         id=pulumi.get(__ret__, 'id'),
-        ipv4_private_pools=pulumi.get(__ret__, 'ipv4_private_pools'),
-        ipv4_public_pools=pulumi.get(__ret__, 'ipv4_public_pools'),
         labels=pulumi.get(__ret__, 'labels'),
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
@@ -163,10 +143,10 @@ def get_vpc_v1_network(id: Optional[_builtins.str] = None,
         resource_version=pulumi.get(__ret__, 'resource_version'),
         status=pulumi.get(__ret__, 'status'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_vpc_v1_network_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              parent_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcV1NetworkResult]:
+def get_iam_v2_tenant_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                             name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                             parent_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIamV2TenantResult]:
     """
     Use this data source to access information about an existing resource.
     """
@@ -175,12 +155,10 @@ def get_vpc_v1_network_output(id: Optional[pulumi.Input[Optional[_builtins.str]]
     __args__['name'] = name
     __args__['parentId'] = parent_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('nebius:index/getVpcV1Network:getVpcV1Network', __args__, opts=opts, typ=GetVpcV1NetworkResult, package_ref=_utilities.get_package())
-    return __ret__.apply(lambda __response__: GetVpcV1NetworkResult(
+    __ret__ = pulumi.runtime.invoke_output('nebius:index/getIamV2Tenant:getIamV2Tenant', __args__, opts=opts, typ=GetIamV2TenantResult, package_ref=_utilities.get_package())
+    return __ret__.apply(lambda __response__: GetIamV2TenantResult(
         created_at=pulumi.get(__response__, 'created_at'),
         id=pulumi.get(__response__, 'id'),
-        ipv4_private_pools=pulumi.get(__response__, 'ipv4_private_pools'),
-        ipv4_public_pools=pulumi.get(__response__, 'ipv4_public_pools'),
         labels=pulumi.get(__response__, 'labels'),
         metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),

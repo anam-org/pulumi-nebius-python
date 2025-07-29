@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: pulumi_nebius
-Version: 0.5.55
+Version: 0.5.90
 Summary: A Pulumi provider dynamically bridged from nebius.
 Project-URL: Repository, https://github.com/nebius/terraform-provider-nebius
 Requires-Python: >=3.9
