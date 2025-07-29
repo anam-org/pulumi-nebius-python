@@ -1,10 +1,10 @@
 {
   "resource": true,
   "name": "terraform-provider",
-  "version": "0.12.0",
+  "version": "0.0.0-dev",
   "parameterization": {
     "name": "nebius",
-    "version": "0.5.55",
-    "value": "eyJyZW1vdGUiOnsidXJsIjoidGVycmFmb3JtLXByb3ZpZGVyLnN0b3JhZ2UuZXUtbm9ydGgxLm5lYml1cy5jbG91ZC9uZWJpdXMvbmViaXVzIiwidmVyc2lvbiI6IjAuNS41NSJ9fQ=="
+    "version": "0.5.90",
+    "value": "eyJyZW1vdGUiOnsidXJsIjoidGVycmFmb3JtLXByb3ZpZGVyLnN0b3JhZ2UuZXUtbm9ydGgxLm5lYml1cy5jbG91ZC9uZWJpdXMvbmViaXVzIiwidmVyc2lvbiI6IjAuNS45MCJ9fQ=="
   }
 }

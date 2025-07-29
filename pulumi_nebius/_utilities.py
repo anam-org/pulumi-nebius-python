@@ -328,7 +328,7 @@ def get_plugin_download_url():
 	return None
 
 def get_version():
-    return "0.5.55"
+    return "0.5.90"
 
 _package_lock = asyncio.Lock()
 _package_ref = ...
@@ -342,12 +342,12 @@ async def get_package():
 					parameterization = resource_pb2.Parameterization(
 						name="nebius",
 						version=get_version(),
-						value=base64.b64decode("eyJyZW1vdGUiOnsidXJsIjoidGVycmFmb3JtLXByb3ZpZGVyLnN0b3JhZ2UuZXUtbm9ydGgxLm5lYml1cy5jbG91ZC9uZWJpdXMvbmViaXVzIiwidmVyc2lvbiI6IjAuNS41NSJ9fQ=="),
+						value=base64.b64decode("eyJyZW1vdGUiOnsidXJsIjoidGVycmFmb3JtLXByb3ZpZGVyLnN0b3JhZ2UuZXUtbm9ydGgxLm5lYml1cy5jbG91ZC9uZWJpdXMvbmViaXVzIiwidmVyc2lvbiI6IjAuNS45MCJ9fQ=="),
 					)
 					registerPackageResponse = monitor.RegisterPackage(
 						resource_pb2.RegisterPackageRequest(
 							name="terraform-provider",
-							version="0.12.0",
+							version="0.0.0-dev",
 							download_url=get_plugin_download_url(),
 							parameterization=parameterization,
 						))
