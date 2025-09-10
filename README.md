@@ -4,7 +4,7 @@ This is a python binding for terraform-provider-nebius generated using [Any terr
 
 ## Installation
 
-    poetry install
+    uv sync
 
 ## Usage
 
